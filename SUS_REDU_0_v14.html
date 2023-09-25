@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>SUS-REDU-0</title>
+    <link rel="stylesheet" href="your-custom-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.0.0/mermaid.css">
+    <style>
+    body{
+        margin: 0 10px;
+        background-color: none;
+    }
+    .Rows{
+        justify-content: space-between;
+        display: inline-flex;
+        margin-bottom: 4px;
+    }
+    .title{
+        margin-top:17px;
+        width: 100%;
+        margin-bottom: 30px;
+        border-bottom:3px solid #3ad9a9;
+    }
+    h{
+        margin-left: 11px;
+        color: #3ad9a9;
+        font-size: 32px;
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif; 
+    }
+    .tips{
+        display: flex;
+        width: 180px;
+        height: 20px;
+        margin:3px 7px;
+        align-content: center;
+        border-radius: 2px;
+        line-height: 1.5; 
+    }
+    blockname{
+        margin-top:10px;
+        margin-left: 6px;
+        margin-bottom: 0px;
+        border-bottom:2px solid #3ad9a9;
+        font-size: 18px;
+        color: #3ad9a9;
+        font-weight:bolder;
+    }
+    .manual{
+        justify-content: space-between;
+        margin: 4px;
+        font-family: 'Open Sans', sans-serif; 
+        font-size: 15px;
+        background-color:  #1de49817;
+        border-radius: 3px;
+        padding:0 5px;
+        line-height: 31px;
+    }
+    .box0{
+        display: inline-block;
+        width: 182px;
+        height: 31px;
+        background-color: #1de4982a;
+        border: 1px dashed #000000;
+        border-radius: 2px;
+        text-align: center;
+        line-height: 30px;
+        vertical-align: middle;
+        margin:0 5px;
+        color: black;
+        font:bolder
+    }
+    .box1{
+        width: 180px;
+        height: 29px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #000;
+        border-radius: 2px;
+        margin: 0 5px;
+    }
+    .box2{
+        width: 180px;
+        height: 29px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #000;
+        border-radius: 2px;
+        margin: 0 5px;
+    }
+    .box3{
+        width: 180px;
+        height: 32.5px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #000;
+        border-radius: 2px;
+        margin: 0 5px;
+        color: grey;
+    }
+    .box4{
+        width: 180px;
+        height: 29px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #000;
+        border-radius: 2px;
+        margin: 0 4.5px;
+    }
+    .box5{
+        display: flex;
+        width: 30px;
+        height: 30px;
+        background-color: #f5f5f5;
+        border: 1px solid #000;
+        border-radius: 2px;
+        margin: 1px 4px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .button1{
+        width: 120px;
+        height: 48px;
+        background-color: #0ae490ef;
+        color: #ffffff;
+        border:none; 
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.1s;
+        border-radius: 5px;
+        margin:5px 5px 2px 5px;
+    }
+    .button1:hover{
+        background-color:#1cc190fc;
+
+    }
+    .button1:active{
+        background-color: #0ae490ef;
+        transform: scale(0.95);
+    }
+    .button2{
+        width: 119px;
+        height: 48px;
+        background-color:  #1de498b9;
+        color: #ffffff;
+        border:none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.1s;
+        border-radius: 5px;
+        margin:5px 5px 2px 5px;
+    }
+    .button2:hover{
+        background-color:#3ad9a9;
+
+    }
+    .button2:active{
+        background-color: #0ae490ef;
+        transform: scale(0.95);
+    }
+    .button3{
+        width: 119px;
+        height: 48px;
+        background-color: #1de498a6;
+        color: #ffffff;
+        border:none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.1s;
+        border-radius: 5px;
+        margin:5px 5px 2px 5px;
+    }
+    .button3:hover{
+        background-color:#3ad9a9;
+    }
+    .button3:active{
+        background-color: #0ae490ef;
+        transform: scale(0.95);
+    }
+    b{
+        font-size: 18px;
+        font-family: 'Open Sans', sans-serif; 
+        font-weight: bold;
+    }
+    p{
+        color:rgba(67, 69, 66, 0.917);
+        font-size: 13px;
+        font-family: 'Open Sans', sans-serif; 
+    }
+    d{
+        font-size: 18px;
+        font-family: 'Open Sans', sans-serif; 
+        font-weight: bold;
+        color:#0ae490ef ;
+    }
+
+    .Chart{
+        margin-left:0px;
+        margin-top: 15px;
+    }
+    .resulttext{
+        justify-content: space-between;
+        margin-left:30px;
+        margin-top: 20px;
+        font-family: 'Open Sans', sans-serif; 
+        font-size: 16px;
+        display: none;
+    }
+    .scrollToTop {     
+            display: none;
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #0ae49097;
+            color: #f9f9f9;
+            border:1px solid #d0c8c8;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 130%;
+            text-align: center;
+            font-weight:900;
+    }
+    .flowchart{
+        margin-left:0px;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+    </style> 
+</head>
+
+<body>
+    <div class="title"><h>SUS-REDU-0</h></div>
+    <div>
+        <div class="Rows">
+            <button class="button1" onclick="calculateSum()"><b>CO2算出</b></button>
+            <button class="button2" onclick="showManual()"><b>手順書</b></button>
+            <button class="button3" onclick="renew()"><b>クリア</b></button>
+        </div>
+    </div>
+    <div>
+        <div class="Rows">
+            <a class="manual" id="manual" style="display: none;">
+                １. [プロジェクト名]を入力する
+                <br>２. [活動内容][活動主体][消費エネルギー][活動量]を入力・選択する
+                <br>３. 必要に応じて[＋][－] ボタンをクリックし行を追加・削除する
+                <br>４. データを入力し終えたら[CO2算出]ボタンをクリックする
+                <br>５. CO2排出量が算出され、グラフ＆フローチャートが自動生成される
+            </a>
+        </div>
+    </div>
+    <div>
+        <div class="Rows" id="inputform">
+            <blockname>入力フォーム</blockname>
+        </div>
+    <div>
+    <div>
+        <div class="Rows">
+            <div class="tips"><p>プロジェクト名</p></div>
+            <div class="tips"><p>CO2総排出量</p></div>
+    </div>
+    <div>
+        <div class="Rows">
+            <input class="box1" type="text" id="process" placeholder="プロジェクト名を入力">
+            <div class="box0" id="CO2_RESULT"></div>
+        </div>
+    </div>
+    <div>
+        <div class="Rows">
+            <div class="tips"><p>活動内容</p></div>
+            <div class="tips"><p>活動主体</p></div>
+            <div class="tips"><p>消費エネルギー</p></div>
+            <div class="tips"><p>活動量</p></div>
+            <div class="tips"><p>排出原単位</p></div>
+            <div class="tips"><p>CO2排出量</p></div> 
+        </div> 
+    </div>
+    <div id="inputContainer"></div>
+    <div>
+        <div class="Rows" id="graphchart" style="display: none;margin-top: 25px;">
+            <blockname>円グラフ</blockname>
+        </div>
+    </div>
+    <div>
+        <div class="Rows">
+            <canvas id="pieChart" class="Chart" width="450px" height="320px" style="display: none;"></canvas>
+            <div id="results" class="resulttext" ></div>
+        </div>
+    </div>
+    <div>
+        <div class="Rows" id="slchart" style="display: none;margin-top: 25px;">
+            <blockname >フローチャート</blockname>
+        </div>
+    </div>
+    <div>
+        <div class="Rows">
+            <div id="graphContainer" class="flowchart"></div>
+        </div>
+    </div>
+    <button class="scrollToTop" onclick="scrollToTop()">⇧</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	<script type="module" src="">import { Chart as ChartJS } from 'chart.js/auto'; </script>
+	<script type="text/javascript" src="https://unpkg.com/mxgraph/javascript/mxClient.min.js"></script>
+    <script>
+        //CO2算出機能
+        function calculateSum() {
+            var inputContainers = document.querySelectorAll('.input-container');
+            var process = document.getElementById("process").value.trim();
+            var sum = 0;
+            var text = "内訳:";
+            var alltext= text;
+            var co2Data = []; //グラフ用データ
+            var fcData = [] ;//flowchart生成用データ
+            var arrln = [];
+            var arrla = [];
+            var laneToNumber = {}; 
+            var arrva = [];
+            var hasError = false;
+            var boxBorder='1px solid #000';
+
+            //空欄チェック
+            document.getElementById("process").style.border= boxBorder;
+            if (!process || process === null) {
+                document.getElementById("process").style.borderColor = "red";
+                hasError = true;
+            }
+
+            for (var i = 0; i < inputContainers.length; i++) {
+                if (inputContainers[i].querySelector('.box1')) {
+                    // ユーザが入力した活動内容を取得
+                    var text1 = inputContainers[i].querySelector('.box1').value.trim();
+                    // ユーザが入力した活動主体を取得
+                    var text2 = inputContainers[i].querySelector('.box2').value.trim();
+                    // ユーザが入力した活動量を取得
+                    var num1 = parseFloat(inputContainers[i].querySelector('.box4').value);
+                    // ユーザが選択した消費エネルギーのCO2排出原単位を取得
+                    var num2 = parseFloat(inputContainers[i].querySelector('.box3').value);
+                    var factor = inputContainers[i].querySelector('.box3').value.trim();
+
+                    //空欄チェック
+                    inputContainers[i].querySelector('.box1').style.border=boxBorder;
+                    inputContainers[i].querySelector('.box2').style.border=boxBorder;
+                    inputContainers[i].querySelector('.box3').style.border=boxBorder;
+                    inputContainers[i].querySelector('.box4').style.border=boxBorder;
+                    if (!text1 || text1 === null) {
+                        inputContainers[i].querySelector('.box1').style.borderColor = "red";
+                        hasError = true;
+                    }
+                    if (!text2 || text2 === null) {
+                        inputContainers[i].querySelector('.box2').style.borderColor = "red";
+                        hasError = true;
+                    }
+                    if (isNaN(num1) || num1 === null) {
+                        inputContainers[i].querySelector('.box4').style.borderColor = "red";
+                        hasError = true;
+                    }
+                    if (isNaN(num2) || num2 === null) {
+                        inputContainers[i].querySelector('.box3').style.borderColor = "red";
+                        hasError = true;
+                    }
+                    if (!factor || factor === null || factor === "エネルギー項目を選択") {
+                        inputContainers[i].querySelector('.box3').style.borderColor = "red";
+                        hasError = true;
+                    }
+
+                    //各活動内容ごとのCO2排出量・総排出量を計算
+                    var rowSum = num1 * num2;
+                    sum += rowSum;
+
+                    //CO2排出量グラフのデータ作成
+                    co2Data.push({
+                        label: text1,
+                        value: rowSum.toFixed(2),
+                    });
+
+                    //フローチャートのデータ作成
+                    var lane = text2;
+                    if (laneToNumber[lane] === undefined) {
+                        var newNumber = Object.keys(laneToNumber).length + 1;
+                        laneToNumber[lane] = newNumber;
+                    }
+                    arrln.push(laneToNumber[lane]);
+                    arrla.push(text2);
+                    arrva.push(text1 +'\n'+"CO2排出量:" + rowSum.toFixed(2) + "kg");
+
+                    if(factor="エネルギー項目を選択"){
+                    }else{
+                        inputContainers[i].querySelector('#CO2_factor').innerHTML = factor;
+                    }
+
+                    inputContainers[i].querySelector('#CO2_out').innerHTML = rowSum.toFixed(2) + "kg";
+                        
+                    alltext +=  '<div>'+ text1 + "のCO2排出量:" + rowSum.toFixed(2)　+ "kg" ;
+                }
+                // alert(i + "行計算済"); 
+            }
+            
+            if (hasError) {
+                alert("空欄を埋めてください。");
+                return;
+            }
+
+            document.getElementById("CO2_RESULT").innerHTML = sum.toFixed(2) + "kg";
+            
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.style.display = "block";
+            resultsDiv.innerHTML = process + "のCO2総排出量: " + sum.toFixed(2)　+ "kg"+ '<br>'+'<br>'+ alltext +'<br>'+'<br>' + "※CO2排出量＝活動量×排出原単位"+'<div>' + "※排出原単位:経済産業省・環境省が出している標準値";
+                
+            //グラフ生成機能呼び出し
+            var graphchart = document.getElementById("graphchart");
+            graphchart.style.display="block";
+            var chart = document.querySelector('#pieChart');
+            chart.style.display = "block";
+            getRandomColor(); 
+			createPieChart(co2Data);
+
+            //フローチャート生成機能呼び出し
+            var slchart = document.getElementById("slchart");
+            slchart.style.display="block";
+            fcData = {
+                ln: arrln,
+                la: arrla,   
+                va: arrva 
+            };
+            SL(fcData);
+            
+        }               
+
+        //行追加機能
+        var rowCount = 0;
+        function addInputs() {
+            var inputContainer = document.getElementById("inputContainer");
+            var newInputContainer = document.createElement("div");
+            newInputContainer.className = "input-container";
+            newInputContainer.innerHTML = '<div class="Rows">'+
+                                            //活動内容記入欄
+                                            '<input class="box1" type="text" id="text1" placeholder="活動内容を入力">' +
+                                            //活動主体記入欄
+                                            '<input class="box2" type="text" id="text1" placeholder="活動主体を入力">' +
+                                            //消費エネルギー項目選択欄
+                                            '<select class="box3" id="userSelect" onclick="selectupdata()">' +
+                                                '<option style="display:none;" selected>エネルギー項目を選択</option>'+
+                                                // 各optionのvalueに、該当エネルギーのCO2排出原単位(単位付き)を設定
+                                                // '<option value="2.32kg-CO₂/L">ガソリン(L)</option>'+
+                                                // '<option value="2.23kg-CO2/㎥">都市ガス(㎥)</option>'+
+                                                // '<option value="3.01kg-CO2/㎥">プロパンガス(㎥)</option>'+
+                                                // '<option value="0.435kg-CO₂/kwh">電気(kwh)</option>'+
+                                                // '<option value="2.58kg-CO₂/L">軽油(L)</option>'+
+                                                // '<option value="2.49kg-CO₂/L">灯油(L)</option>'+
+                                                // '<option value="2.71kg-CO₂/L">重油(L)</option>'+
+                                                // '<option value="2.409kg-CO₂/kg">一般炭(kg)</option>'+
+                                                // '<option value="0.235kg-CO₂/㎥">水(㎥)</option>'+
+
+                                                '<option value="2.61kg-CO₂/kg">原料炭(kg)</option>'+
+                                                '<option value="2.33kg-CO₂/kg">一般炭(kg)</option>'+
+                                                '<option value="2.52kg-CO₂/kg">無煙炭(kg)</option>'+
+                                                '<option value="3.17kg-CO₂/kg">コークス(kg)</option>'+
+                                                '<option value="2.78kg-CO₂/kg">石油コークス(kg)</option>'+
+                                                '<option value="2.86kg-CO₂/kg">コールタール(kg)</option>'+
+                                                '<option value="3.12kg-CO₂/kg">石油アスファルト(kg)</option>'+
+                                                '<option value="2.38kg-CO₂/L">コンデンセート(L)</option>'+
+                                                '<option value="2.62kg-CO₂/L">原油(L)</option>'+
+                                                '<option value="2.32kg-CO₂/L">ガソリン(L)</option>'+
+                                                '<option value="2.24kg-CO₂/L">ナフサ(L)</option>'+
+                                                '<option value="2.46kg-CO₂/L">ジェット燃料油(L)</option>'+
+                                                '<option value="2.49kg-CO₂/L">灯油(L)</option>'+
+                                                '<option value="2.58kg-CO₂/L">軽油(L)</option>'+
+                                                '<option value="2.71kg-CO₂/L">A重油(L)</option>'+
+                                                '<option value="3.00kg-CO₂/L">B・C重油(L)</option>'+
+                                                '<option value="3.00kg-CO₂/kg">液化石油ガス(kg)</option>'+
+                                                '<option value="2.34kg-CO₂/N㎥">石油系炭化水素ガス(N㎥)</option>'+
+                                                '<option value="2.70kg-CO₂/kg">液化天然ガス(kg)</option>'+
+                                                '<option value="2.22kg-CO₂/N㎥">天然ガス(N㎥)</option>'+
+                                                '<option value="0.85kg-CO₂/N㎥">コークス炉ガス(N㎥)</option>'+
+                                                '<option value="0.33kg-CO₂/N㎥">高炉ガス(N㎥)</option>'+
+                                                '<option value="1.18kg-CO₂/N㎥">転炉ガス(N㎥)</option>'+
+                                                '<option value="2.23kg-CO₂/N㎥">都市ガス(N㎥)</option>'+
+                                                '<option value="2.3kg-CO₂/kg">石炭(kg)</option>'+
+                                                '<option value="2.8kg-CO₂/kg">石油コークス(kg)</option>'+
+                                                '<option value="2.8kg-CO₂/kg">ナフサ(kg)</option>'+
+                                                '<option value="2.8kg-CO₂/kg">ナフサ(kg)</option>'+
+
+
+                                            
+
+                                            '</select>' +
+                                            '<input type="number" class="box4" oninput="validateInput(this)" placeholder="エネルギーの活動量を入力">' +
+                                            '<div class="box0" id="CO2_factor"></div>'+
+                                            '<div class="box0" id="CO2_out"></div>'+
+                                            '<button class="box5" onclick="addInputs()">➕</button>'+
+                                            '<button class="box5" onclick="deleteRow(this)">➖</button>'+
+                                            '</div>';
+
+            inputContainer.appendChild(newInputContainer);
+            rowCount++;
+            selectupdata();
+        }
+        // 第一行追加
+        addInputs();
+
+        //行削除機能
+        function deleteRow(button) {
+            var thisRow = button.parentNode;
+            var parentContainer = thisRow.parentNode;
+
+            if (rowCount > 1) {
+                parentContainer.removeChild(thisRow);
+                rowCount--;
+
+                selectupdata();
+            }
+        }
+
+        //活動量>0になっているかをチェック
+        function validateInput(inputElement) {
+            var value = parseFloat(inputElement.value);
+            if (isNaN(value) || value < 0) {
+                inputElement.value = ""; 
+            }
+        }
+        
+        //選択欄監視
+        function selectupdata(){  
+            var inputContainers = document.querySelectorAll('.input-container');
+            for (var i = 0; i < inputContainers.length; i++) {
+                let select = inputContainers[i].querySelector('#userSelect');
+                let selecteditem = inputContainers[i].querySelector('#CO2_factor');
+
+                if (select && selecteditem) {
+                    select.addEventListener("change", (function (selectElem, selectedItemElem) {
+                        return function () {
+                            let selectedOption = selectElem.options[selectElem.selectedIndex].value;
+                            selectedItemElem.innerHTML = selectedOption;
+                            select.style.color = "black";
+                        };
+                    })(select, selecteditem));
+                    
+                }
+            }
+        }
+
+        //reload機能
+        function renew(){
+            var alerttext = confirm("データをクリアしますか？");
+            // ユーザーの選択に応じて処理を行う
+            if (alerttext) {
+                location.reload();
+            } else {
+            }   
+        }
+
+        //手順書表示・非表示
+        var manual = document.getElementById("manual");
+        var isHidden = true;
+        function showManual(){
+            if (isHidden) {
+                manual.style.display = "block"; 
+            } else {
+                manual.style.display = "none"; 
+            }
+            isHidden = !isHidden;
+        }    
+
+        //最上部移動
+        function scrollToTop(){
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        window.addEventListener('scroll', function() {
+            var scrollToTopButton = document.querySelector('.scrollToTop');
+            if (window.scrollY > 160) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+
+        //ランダムな色生成機能
+        function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+        }
+            
+        //グラフ生成機能
+        var chart=null;
+		function createPieChart(data) {
+					ctx = document.getElementById('pieChart').getContext('2d');
+                    if (chart!=null){
+                        chart.destroy();
+                    }
+					chart = new Chart(ctx, {
+						type: 'pie',
+						data: {
+							labels: data.map(item => item.label),
+							datasets: [{
+								data: data.map(item => item.value),
+                                backgroundColor: data.map(() => getRandomColor()), // ランダムな色を設定
+							}],
+						},
+						options: {
+						    responsive: false, 
+						    maintainAspectRatio: false, 
+						},
+					});            
+		}
+
+        //SwimLaneChartの生成
+
+        function SL(teArr){
+            
+            //styleの設定
+            const container = document.getElementById('graphContainer');
+            container.innerHTML = '';
+
+            const graph = new mxGraph(container);
+            const parent = graph.getDefaultParent();
+            const taskStyle = 'task;fillColor=#1de4982a;strokeColor=#000000;fontSize=13;fontColor=#000000;' + mxConstants.STYLE_ROUNDED + '=1;';
+            const swStyle = 'swimlane;fillColor=none;strokeColor=#000000;';
+            const laneTitleStyle = 'text;html=1;strokeColor=#000000;fillColor=#f5f5f5;whiteSpace=wrap;rounded=0;editable=0;fontWeight=bold;fontSize=15;fontColor=#000000;';
+            const edgeStyle = 'strokeColor=#000000';
+            const lredgeStyle = 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;strokeColor=#000000';
+            const rledgeStyle = 'edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;strokeColor=#000000';
+
+            graph.getModel().beginUpdate();
+            graph.setCellsMovable(false);
+            
+            //テストデータ
+            // const teArr = {
+            // ln: [1, 2, 2,3,1],
+            // 　la: ['lane-a', 'lane-b', 'lane-b','lane-c','lane-a'],   
+            // va: ['task-1', 'task-2', 'task-3','task-4','task-5'] 
+            // };
+            
+            //slのパラメーター
+            const uniArr = Array.from(new Set(teArr.la));
+            const tskn = teArr.la.length
+            try {
+                var tkrec = {};//taskを記録する
+                for (let i = 0; i < uniArr.length; i++) {	
+                    graph.insertVertex(parent, null, uniArr[i], 10+ i * 225, 0, 200, 30, laneTitleStyle);
+                    const sl = graph.insertVertex(parent, null, '', 10 + i * 225, 30, 200, 40 + tskn * 60,swStyle);
+                    
+                        for (let j = 0; j < teArr.ln.length+1; j++) {
+                            if (teArr.ln[j] === i+1){
+                                var variableName = 'a' + j; 
+                                tkrec[variableName] =  graph.insertVertex(sl,null, teArr.va[j], 25, 20 + j* 60, 150, 40, taskStyle);
+                            }
+                        }
+                    }
+                //矢印の追加
+                for (let j = 0; j < teArr.ln.length+1; j++) {
+                    if (j>0){
+                        if(teArr.ln[j] > teArr.ln[j-1]){
+                            graph.insertEdge(parent, null, '', tkrec['a' + (j-1)], tkrec['a' + j], lredgeStyle);
+                        }else if(teArr.ln[j] < teArr.ln[j-1]){
+                            graph.insertEdge(parent, null, '', tkrec['a' + (j-1)], tkrec['a' + j], rledgeStyle);
+                        }else{
+                            graph.insertEdge(parent, null, '', tkrec['a' + (j-1)], tkrec['a' + j], edgeStyle);
+                        }
+                    }
+                }
+            } 
+            finally {
+                graph.getModel().endUpdate();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
